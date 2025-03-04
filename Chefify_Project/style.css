@@ -1,3 +1,4 @@
+
 .header {
     display: flex;
     align-items: center;
@@ -18,19 +19,17 @@
     margin-right: 10px;
 }
 
-/* .brand-name {
+.brand-name {
     font-size: 20px;
     font-weight: bold;
     color: #ff4d79;
-} */
+}
 
 .search-bar input {
     padding: 8px;
     border: 1px solid #ddd;
-    border-radius: 10px;
+    border-radius: 20px;
     width: 250px;
-    margin-right: 500px;
-
 }
 
 .nav-links {
@@ -51,11 +50,11 @@
 }
 
 .recipe-box button {
-    background-color: #ebc8d1;
-    color: #ff4d79;
+    background-color: #ff4d79;
+    color: white;
     border: none;
     padding: 8px 12px;
-    border-radius: 10px;
+    border-radius: 15px;
     cursor: pointer;
 }
 
@@ -65,7 +64,6 @@
     border-radius: 50%;
 }
 
-/* footer */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -82,38 +80,46 @@ body {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    max-width: 1500px;
+    max-width: 2000px;
     margin: auto;
 }
 
 .footer-section {
     flex: 1;
     margin: 10px;
-    min-width: 200px;
+    min-width: 250px;
 }
 
 .footer-section h3 {
     font-size: 16px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.footer-section .about {
+    margin-left: 60px;
 }
 
 .footer-section ul {
     list-style: none;
     padding: 0;
+    margin-left: 20px;
 }
 
 .footer-section ul li {
     margin: 5px 0;
+    margin-left: 20px;
 }
 
 .footer-section ul li a {
     color: #bbb;
     text-decoration: none;
     font-size: 14px;
+    margin-left: 20px;
+
 }
 
 .footer-section ul li a:hover {
-    color: white;
+    color: rgb(255, 125, 154);
 }
 
 .subscribe {
@@ -143,7 +149,7 @@ body {
     justify-content: space-between;
     align-items: center;
     margin-top: 20px;
-    /* border-top: 1px solid #444; */
+    border-top: 1px solid #444;
     padding-top: 10px;
     text-align: center;
 }
@@ -173,7 +179,7 @@ body {
     color: white;
 }
 
-/* Content */
+
 .content {
     display: flex;
     padding: 20px;
