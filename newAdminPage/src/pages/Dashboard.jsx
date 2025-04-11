@@ -7,6 +7,7 @@ import help from "../assets/3_Data/Lab_05/Question 1.png";
 import avatar from "../assets/3_Data/Lab_05/Avatar 313.png";
 import download from "../assets/3_Data/Lab_05/Download.png";
 import up from "../assets/3_Data/Lab_05/Move up.png";
+import add from "../assets/3_Data/Lab_05/add.png";
 const Dashboard = () => {
   const [stats, setStats] = useState({
     turnover: { value: 0, change: 5.33 },
@@ -44,6 +45,12 @@ const Dashboard = () => {
             <h2 className="text-xl font-bold">Detailed report</h2>
           </div>
           <div className="flex gap-2">
+            <button className="flex items-center px-4 py-2 bg-white border border-pink-500 rounded">
+              <div className="mr-3">
+                <img src={add} alt=""/>
+              </div>
+              <span className="mr-3 text-pink-500">Add</span>
+            </button>
             <button className="flex items-center px-4 py-2 bg-white border border-pink-500 rounded">
               <div className="mr-3">
                 <img src={download} alt=""/>

@@ -61,7 +61,7 @@ const Sidebar = () => {
       
       <div className="p-4 m-4 bg-blue-50 rounded-lg text-center mt-auto">
         <div className="mb-2">
-          <img src={img} alt="" className='w-full h-auto' />
+          <img src={img} alt=""  />
         </div>
         <div className="font-bold mb-2">v2.0 is available</div>
         <button className="w-full py-2 px-4 bg-white border border-gray-200 rounded hover:bg-gray-50">
