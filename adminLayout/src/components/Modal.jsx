@@ -1,6 +1,44 @@
 import React, { useState, useEffect } from 'react';
  
  const Modal = ({ isOpen, onClose, order, onSave }) => {
+   const [formData, setFormData] = useState({
+     customerName: '',
+     company: '',
+     orderValue: '',  
+     status: 'New',
+   });
+ 
+   useEffect(() => {
+     if (order) {
+       setFormData({
+         customerName: order.customerName || '',  
+         company: order.company || '',            
+         orderValue: order.orderValue || '',       
+         status: order.status || 'New',           
+       });
+     }
+   }, [order]);
+ 
+   if (!isOpen) return null;
+ 
+   const handleChange = (e) => {
+     const { name, value } = e.target;
+     setFormData({
+       ...formData,
+       [name]: value,
+     });
+   };
+ 
+   const handleSubmit = (e) => {
+     e.preventDefault();
+     const updatedOrder = {
+       ...formData,
+       id: order ? order.id : undefined, 
+       orderValue: !isNaN(parseFloat(formData.orderValue)) ? parseFloat(formData.orderValue) : 0,
+     };
+ 
+     onSave(updatedOrder);
+   };
  
    return (
      <div className="fixed bg-opacity-30 inset-0 flex items-center justify-center z-50">

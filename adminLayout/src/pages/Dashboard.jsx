@@ -9,6 +9,7 @@ import avatar from "../assets/3_Data/Lab_05/Avatar 313.png";
 import download from "../assets/3_Data/Lab_05/Download.png";
 import up from "../assets/3_Data/Lab_05/Move up.png";
 import DataTable from "../components/DataTable";
+import Modal from "../components/Modal";
 
 const Dashboard = () => {
   const [stats, setStats] = useState({
@@ -19,7 +20,23 @@ const Dashboard = () => {
 
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true); // Thêm state loading
-
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedOrder, setSelectedOrder] = useState(null);
+ 
+  const openAddModal = () => {
+    setSelectedOrder(null);
+    setModalOpen(true);
+  };
+ 
+  const openEditModal = (order) => {
+    setSelectedOrder(order);
+    setModalOpen(true);
+  };
+ 
+  const closeModal = () => {
+    setModalOpen(false);
+  };
+ 
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -121,6 +138,11 @@ const Dashboard = () => {
            setStats={setStats}
         />
       </section>
+      <Modal
+        isOpen={modalOpen}
+        onClose={closeModal}
+        order={selectedOrder}
+      />
     </div>
   );
 };
