@@ -1,11 +1,10 @@
 import React from 'react';
- import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
- import Sidebar from './components/Sidebar';
- import Dashboard from './pages/Dashboard';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Sidebar from './components/Sidebar';
+import Dashboard from './pages/Dashboard';
  
  function App() {
- 
-   return (
+  return (
    <Router>
       <div className="flex min-h-screen">
         <Sidebar />
@@ -16,7 +15,7 @@ import React from 'react';
         </div>
       </div>
     </Router>
-);
+  );
 }
 
 export default App;
