@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Overview from "../components/Overview";
 import iconDashboard from "../assets/3_Data/Lab_05/Squares four 1.png";
 import filetext from "../assets/3_Data/Lab_05/File text 1.png";
@@ -15,6 +15,49 @@ const Dashboard = () => {
     profit: { value: 0, change: 5.33 },
     newCustomers: { value: 0, change: 6.84 },
   });
+
+  const [orders, setOrders] = useState([]);
+  const [loading, setLoading] = useState(true); // Thêm state loading
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          "https://67ec9394aa794fb3222e224b.mockapi.io/report"
+        );
+
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+
+        const data = await response.json();
+        setOrders(data);
+
+        const totalTurnover = data.reduce(
+          (sum, item) => sum + (parseFloat(item.orderValue) || 0),
+          0
+        );
+        const profit = totalTurnover * 0.35;
+
+        const newCustomersCount = data.filter(
+          (item) => item.status === "New"
+        ).length;
+
+        setStats({
+          turnover: { value: totalTurnover, change: 5.33 },
+          profit: { value: profit, change: 3.21 },
+          newCustomers: { value: newCustomersCount, change: 6.84 },
+        });
+
+        setLoading(false); // Đặt loading thành false sau khi dữ liệu được tải
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        setLoading(false); // Đặt loading thành false nếu có lỗi
+      }
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <div className="p-6">
