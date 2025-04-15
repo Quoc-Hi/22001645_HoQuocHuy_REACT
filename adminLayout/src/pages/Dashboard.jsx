@@ -8,6 +8,7 @@ import help from "../assets/3_Data/Lab_05/Question 1.png";
 import avatar from "../assets/3_Data/Lab_05/Avatar 313.png";
 import download from "../assets/3_Data/Lab_05/Download.png";
 import up from "../assets/3_Data/Lab_05/Move up.png";
+import DataTable from "../components/DataTable";
 
 const Dashboard = () => {
   const [stats, setStats] = useState({
@@ -49,10 +50,10 @@ const Dashboard = () => {
           newCustomers: { value: newCustomersCount, change: 6.84 },
         });
 
-        setLoading(false); // Đặt loading thành false sau khi dữ liệu được tải
+        setLoading(false); 
       } catch (error) {
         console.error("Error fetching data:", error);
-        setLoading(false); // Đặt loading thành false nếu có lỗi
+        setLoading(false); 
       }
     };
 
@@ -113,6 +114,12 @@ const Dashboard = () => {
             </button>
           </div>
         </div>
+        <DataTable
+           data={orders}
+           loading={loading}
+           setOrders={setOrders}
+           setStats={setStats}
+        />
       </section>
     </div>
   );
