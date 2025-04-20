@@ -1,40 +1,36 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { addTodo, toggleTodo, removeTodo } from './todosSlice';
-
-const TodoList = () => {
-  const [newTodo, setNewTodo] = useState('');
-  const todos = useSelector((state) => state.todos);
-  const dispatch = useDispatch();
-
-  const handleAddTodo = () => {
-    dispatch(addTodo(newTodo));
-    setNewTodo('');
-  };
-
-  return (
-    <div>
-      <input
-        type="text"
-        value={newTodo}
-        onChange={(e) => setNewTodo(e.target.value)}
-      />
-      <button onClick={handleAddTodo}>Thêm công việc</button>
-      <ul>
-        {todos.map((todo, index) => (
-          <li key={index}>
-            <span
-              style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}
-              onClick={() => dispatch(toggleTodo(todo.text))}
-            >
-              {todo.text}
-            </span>
-            <button onClick={() => dispatch(removeTodo(todo.text))}>Xoá</button>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-};
-
-export default TodoList;
+ import { useDispatch, useSelector } from 'react-redux';
+ import { addTodo, toggleTodo, removeTodo } from '../features/todosSlice';
+ 
+ function TodoList() {
+   const [text, setText] = useState('');
+   const todos = useSelector(state => state.todos);
+   const dispatch = useDispatch();
+ 
+   return (
+     <div>
+       <h2>📋 To-do List</h2>
+       <input value={text} onChange={e => setText(e.target.value)} />
+       <button onClick={() => {
+         dispatch(addTodo(text));
+         setText('');
+       }}>Add</button>
+ 
+       <ul>
+         {todos.map(todo => (
+           <li key={todo.id}>
+             <span
+               onClick={() => dispatch(toggleTodo(todo.id))}
+               style={{ textDecoration: todo.completed ? 'line-through' : 'none', cursor: 'pointer' }}
+             >
+               {todo.text}
+             </span>
+             <button onClick={() => dispatch(removeTodo(todo.id))}> x </button>
+           </li>
+         ))}
+       </ul>
+     </div>
+   );
+ }
+ 
+ export default TodoList;
