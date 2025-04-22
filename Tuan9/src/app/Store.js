@@ -5,6 +5,7 @@ import themeReducer from '../features/themeSlice';
 import cartReducer from '../features/cartSlice';
 import authReducer from '../features/authSlice';
 import userReducer from '../features/UsersSlice';
+import countersReducer from '../features/countersSlice';
  
  export const store = configureStore({
    reducer: {
@@ -14,5 +15,6 @@ import userReducer from '../features/UsersSlice';
      cart: cartReducer,
      auth: authReducer,
      user: userReducer,
+     counters: countersReducer,
    }
  });

@@ -5,6 +5,7 @@ import Theme from './components/Theme';
 import ShoppingCart from './components/ShoppingCart';
 import Login from './components/Login';
 import UserList from './components/UserList';
+import AdvancedCounter from './components/AdvancedCounter';
  
  function App() {
    return (
@@ -20,6 +21,8 @@ import UserList from './components/UserList';
       <Login />
       <hr />
       <UserList /> 
+      <hr />
+      <AdvancedCounter />
       </div>
    );
  }
