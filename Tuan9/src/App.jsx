@@ -6,6 +6,7 @@ import ShoppingCart from './components/ShoppingCart';
 import Login from './components/Login';
 import UserList from './components/UserList';
 import AdvancedCounter from './components/AdvancedCounter';
+import BMICalculator from './components/BMICalculator';
  
  function App() {
    return (
@@ -23,6 +24,8 @@ import AdvancedCounter from './components/AdvancedCounter';
       <UserList /> 
       <hr />
       <AdvancedCounter />
+      <hr />
+      <BMICalculator />
       </div>
    );
  }
