@@ -7,6 +7,7 @@ import Login from './components/Login';
 import UserList from './components/UserList';
 import AdvancedCounter from './components/AdvancedCounter';
 import BMICalculator from './components/BMICalculator';
+import EventManagement from './components/EventManagement';
  
  function App() {
    return (
@@ -26,6 +27,8 @@ import BMICalculator from './components/BMICalculator';
       <AdvancedCounter />
       <hr />
       <BMICalculator />
+      <hr />
+      <EventManagement />
       </div>
    );
  }
